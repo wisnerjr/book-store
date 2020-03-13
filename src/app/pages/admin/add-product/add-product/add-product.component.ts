@@ -20,6 +20,8 @@ export class AddProductComponent implements OnInit,  OnDestroy {
   formGroup: FormGroup;
   submitted = false;
 
+  existingBooksIds: Set<number>;
+
 
   constructor(
     private route: ActivatedRoute,
@@ -48,6 +50,10 @@ export class AddProductComponent implements OnInit,  OnDestroy {
         console.log(this.formGroup);
       });
       this.formGroup.controls['id'].disable();
+    } else {
+      this.subs.sink = this.stockService.get().subscribe((resp: Book[]) => {
+        this.existingBooksIds = new Set([...resp.map(r => { return r.id; })]);
+      });
     }
   }
 
@@ -65,7 +71,7 @@ export class AddProductComponent implements OnInit,  OnDestroy {
   ngOnDestroy() { this.subs.unsubscribe(); }
 
   submit() {
-    console.log("submit")
+    if (!this.isEditing && this.existingBooksIds.has(this.formGroup.value.id)) console.log("repeated!");
   }
 
   onCancel() {
