@@ -13,6 +13,7 @@ const routes: Routes = [
   { path: 'admin/list-order', component: ListOrderComponent},
   { path: 'user/checkout', component: CheckoutComponent },
   { path: 'list-product', component: ListProductComponent },
+  { path: 'admin/add-product', component: AddProductComponent },
   { path: 'admin/add-product/:id', component: AddProductComponent }
 ];
 

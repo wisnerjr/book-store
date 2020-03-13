@@ -2,4 +2,65 @@
   <h3 class="m-3 text-primary">{{ isEditing ? 'Edit' : 'Add' }} Product</h3>
   <mat-divider class="title"></mat-divider>
   <br />
+
+  <form style="width: 100%;" [formGroup]="formGroup" (ngSubmit)="submit()">
+    <div class="row">
+      <div class="col-md-6">
+        <mat-form-field hintLabel="Insert a unique id" appearance="fill">
+          <mat-label>Id</mat-label>
+          <input formControlName="id" matInput placeholder="Ex. 999" numbersOnly>
+          <mat-hint align="end">Cannot be same as existing products ids!</mat-hint>
+        </mat-form-field>
+      </div>
+
+      <div class="col-md-6">
+        <mat-form-field hintLabel="Min 3/Max 50 characters" appearance="fill">
+          <mat-label>Name</mat-label>
+          <input formControlName="name" matInput minLength="3" maxlength="50" placeholder="Ex. Clean Code" textOnly>
+          <mat-hint align="end">{{ formGroup.value.name?.length || 0}}/50</mat-hint>
+        </mat-form-field>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-md-6">
+        <mat-form-field hintLabel="Insert author name" appearance="fill">
+          <mat-label>Author</mat-label>
+          <input formControlName="author" matInput minLength="3" maxlength="50" placeholder="Ex. Bernard Cornwell" textOnly>
+          <mat-hint align="end">{{ formGroup.value.name?.length || 0}}/50</mat-hint>
+        </mat-form-field>
+      </div>
+
+      <div class="col-md-6">
+        <mat-form-field hintLabel="Minimum capacity 1" appearance="fill">
+          <mat-label>Quantity</mat-label>
+          <input type="number" formControlName="quantity" matInput min="1" max="9999" placeholder="Ex. 9999" numbersOnly>
+          <mat-hint align="end">Maximum capacity 9999</mat-hint>
+        </mat-form-field>
+      </div>
+    </div>
+
+      <div class="row">
+        <div class="col-md-6">
+          <mat-form-field hintLabel="Min 3/Max 50 characters" appearance="fill">
+            <mat-label>Genre</mat-label>
+            <input formControlName="genre" matInput minLength="3" maxlength="50" placeholder="Ex. Clean Code" textOnly>
+            <mat-hint align="end">{{ formGroup.value.name?.length || 0}}/50</mat-hint>
+          </mat-form-field>
+        </div>
+
+        <div class="col-md-6">
+          <mat-form-field hintLabel="Min 3/Max 50 characters" appearance="fill">
+            <mat-label>Language</mat-label>
+            <input formControlName="language" matInput minLength="3" maxlength="50" placeholder="Ex. Clean Code" textOnly>
+            <mat-hint align="end">{{ formGroup.value.name?.length || 0}}/50</mat-hint>
+          </mat-form-field>
+        </div>
+    </div>
+
+    <div class="row justify-content-center mp-3">
+        <button mat-raised-button class="m-3 btn btn-secondary" (click)="onCancel()">Cancel</button>
+        <button type="submit" [disabled]="formGroup.invalid" mat-raised-button class="m-3 btn btn-primary">Save</button>
+    </div>
+  </form>
 </div>

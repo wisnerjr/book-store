@@ -1,12 +1,13 @@
-<h1 mat-dialog-title>
-  {{title}}
-</h1>
+<div class="container">
+  <h6 class="text-primary" mat-dialog-title> {{title}} </h6>
+  <mat-divider class="title"></mat-divider>
 
-<div mat-dialog-content>
-  <p>{{message}}</p>
-</div>
+  <br />
 
-<div mat-dialog-actions>
-  <button mat-button (click)="onDismiss()">No</button>
-  <button mat-raised-button color="primary" (click)="onConfirm()">Yes</button>
+  <div mat-dialog-content><p>{{message}}</p></div>
+
+  <div mat-dialog-actions class="row justify-content-center mp-3">
+    <button mat-button class="btn btn-secondary" (click)="onDismiss()">No</button>
+    <button mat-raised-button class="btn btn-primary" (click)="onConfirm()">Yes</button>
+  </div>
 </div>

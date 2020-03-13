@@ -7,26 +7,33 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatDialogModule } from '@angular/material/dialog';
 import { ConfirmDialogComponent } from '../components/confirm-dialog/confirm-dialog/confirm-dialog.component';
 import { MatDividerModule } from '@angular/material/divider';
+import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { MatInputModule } from '@angular/material/input';
 
 
 @NgModule({
   imports: [
+    FormsModule,
+    ReactiveFormsModule,
     FontAwesomeModule,
     MatTableModule,
     CdkTableModule,
     MatPaginatorModule,
     MatButtonModule,
     MatDialogModule,
-    MatDividerModule
+    MatDividerModule,
+    MatInputModule
   ],
   exports: [
+    ReactiveFormsModule,
     FontAwesomeModule,
     MatTableModule,
     CdkTableModule,
     MatPaginatorModule,
     MatButtonModule,
     MatDialogModule,
-    MatDividerModule
+    MatDividerModule,
+    MatInputModule
   ],
   entryComponents: [ConfirmDialogComponent]
 })

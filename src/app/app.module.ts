@@ -12,6 +12,8 @@ import { ListOrderComponent } from './pages/admin/list-order/list-order/list-ord
 import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from './shared/modules/shared.module';
 import { ConfirmDialogComponent } from './shared/components/confirm-dialog/confirm-dialog/confirm-dialog.component';
+import { NumberOnlyDirective } from './shared/directives/number-only.directive';
+import { TextOnlyDirective } from './shared/directives/text-only.directive';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { ConfirmDialogComponent } from './shared/components/confirm-dialog/confi
     ListProductComponent,
     CheckoutComponent,
     ListOrderComponent,
-    ConfirmDialogComponent
+    ConfirmDialogComponent,
+    NumberOnlyDirective,
+    TextOnlyDirective
   ],
   imports: [
     BrowserModule,
