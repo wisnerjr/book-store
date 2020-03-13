@@ -1,10 +1,13 @@
-import { Component, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { StockService } from 'src/app/shared/services/stock.service';
 import { UiStateService } from 'src/app/shared/services/ui-state.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { SubSink } from 'subsink';
 import { FormGroup, FormBuilder, Validators } from '@angular/forms';
 import { Book } from 'src/app/shared/models/book.model';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { Language } from 'src/app/shared/enums/language.enum';
+import { Genre } from 'src/app/shared/enums/genre.enum';
 
 const listProductRoute = '/list-product';
 @Component({
@@ -19,16 +22,17 @@ export class AddProductComponent implements OnInit,  OnDestroy {
   book = new Book();
   formGroup: FormGroup;
   submitted = false;
-
   existingBooksIds: Set<number>;
-
+  Language = Language;
+  Genre = Genre;
 
   constructor(
     private route: ActivatedRoute,
     private stockService: StockService,
     protected uiStateService: UiStateService,
     private router: Router,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private snackBar: MatSnackBar
   ) {
     this.buildForm();
    }
@@ -46,8 +50,7 @@ export class AddProductComponent implements OnInit,  OnDestroy {
           quantity: this.book.quantity,
           genre: this.book.genre,
           language: this.book.language
-        })
-        console.log(this.formGroup);
+        });
       });
       this.formGroup.controls['id'].disable();
     } else {
@@ -71,7 +74,26 @@ export class AddProductComponent implements OnInit,  OnDestroy {
   ngOnDestroy() { this.subs.unsubscribe(); }
 
   submit() {
-    if (!this.isEditing && this.existingBooksIds.has(this.formGroup.value.id)) console.log("repeated!");
+    if (!this.isEditing && this.existingBooksIds.has(this.formGroup.value.id)) {
+      this.formGroup.controls['id'].setErrors({'inconrrect': true});
+      this.snackBar.open('Id was already assign to a book. Id must be unique!', '', {
+        duration: 4000,
+        verticalPosition: 'top',
+        panelClass: ['alert-snackbar', 'justify-content-center']
+      });
+
+      setTimeout(() => {
+        this.formGroup.controls['id'].setErrors(null);
+      }, 3000);
+      return;
+    }
+
+    Object.assign(this.book, this.formGroup.value);
+    if(this.isEditing) {
+      this.stockService.update(this.book.id, this.book).subscribe(() => { this.redirectToListProduct()});
+    } else {
+      this.stockService.create(this.book).subscribe(() => { this.redirectToListProduct()});
+    }
   }
 
   onCancel() {

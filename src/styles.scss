@@ -13,9 +13,17 @@ form{ width:420px;margin:35px auto 100px;display:block;float:none; }
 .button-wrapper{ margin-top:10px; }
 
 $divider_color: #007bff !important;
+$alert_snackBar_color: #d44242;
 
-.title.mat-divider{
+.title.mat-divider {
   border-top-color: $divider_color;
   width: 40%;
 }
+
+.alert-snackbar {
+  background-color: $alert_snackBar_color;
+  color:white;
+  justify-content: center;
+}
+
 

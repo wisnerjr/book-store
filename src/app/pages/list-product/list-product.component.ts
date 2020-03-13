@@ -7,8 +7,9 @@ import { MatTableDataSource } from '@angular/material/table';
 import { UiStateService } from 'src/app/shared/services/ui-state.service';
 import { faPlus, faEdit, faTrash, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { MatDialog } from '@angular/material/dialog';
-import { ConfirmDialogComponent, ConfirmDialogModel } from 'src/app/shared/components/confirm-dialog/confirm-dialog/confirm-dialog.component';
+import { ConfirmDialogComponent, ConfirmDialogModel } from 'src/app/shared/components/confirm-dialog/confirm-dialog.component';
 import { Router } from '@angular/router';
+import { MatSort } from '@angular/material/sort';
 
 const addProductRoute = 'admin/add-product/';
 
@@ -18,7 +19,8 @@ const addProductRoute = 'admin/add-product/';
   styleUrls: ['./list-product.component.scss']
 })
 export class ListProductComponent implements OnInit, OnDestroy {
-  @ViewChild(MatPaginator, {static: false}) paginator: MatPaginator;
+  @ViewChild(MatPaginator, { static: true }) paginator: MatPaginator;
+  @ViewChild(MatSort, { static: true }) sort: MatSort;
 
 
   subs = new SubSink();
@@ -44,8 +46,9 @@ export class ListProductComponent implements OnInit, OnDestroy {
 
   loadBooks() {
     this.subs.sink = this.stockService.get().subscribe((resp: Array<Book>) => {
-      this.dataSource.data = resp;
+      this.dataSource.data = resp.sort((a, b) => { return a.id - b.id; });
       this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
     })
   }
 

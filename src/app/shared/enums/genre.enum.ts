@@ -1,9 +1,9 @@
 export enum Genre {
-  Fantasy,
-  Action,
-  Suspense,
-  Romance,
-  Syfy,
-  Mystery,
-  Supernatural
+  Fantasy = "Fantasy",
+  Action = "Action",
+  Suspense = "Suspense",
+  Romance = "Romance",
+  Syfy = "Syfy",
+  Mystery = "Mystery",
+  Supernatural = "Supernatural"
 }
