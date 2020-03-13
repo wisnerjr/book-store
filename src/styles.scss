@@ -4,3 +4,11 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+$divider_color: #007bff !important;
+
+.title.mat-divider{
+  border-top-color: $divider_color;
+  width: 40%;
+}
+

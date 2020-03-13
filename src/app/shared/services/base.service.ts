@@ -1,12 +1,8 @@
 import { Injectable } from '@angular/core';
-// import { environment } from 'src/environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { throwError } from 'rxjs';
 import { Observable } from 'rxjs';
 import { map, catchError } from 'rxjs/operators';
-
-
-// export const url = environment.apiUrl;
 
 @Injectable({
   providedIn: 'root'
@@ -36,11 +32,10 @@ export class BaseService<T> {
   }
 
 
-   delete(id: number): Observable<Response> {
+   delete(id: number): Observable<any> {
       return this.http.delete([this.url, id].join('/')).pipe(
-        map(this.extractData),
         catchError(error => this.handleError(error))
-      )
+      );
    }
 
   extractData(res: Response | any) {

@@ -11,6 +11,7 @@ import { CheckoutComponent } from './pages/user/checkout/checkout/checkout.compo
 import { ListOrderComponent } from './pages/admin/list-order/list-order/list-order.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from './shared/modules/shared.module';
+import { ConfirmDialogComponent } from './shared/components/confirm-dialog/confirm-dialog/confirm-dialog.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { SharedModule } from './shared/modules/shared.module';
     AddProductComponent,
     ListProductComponent,
     CheckoutComponent,
-    ListOrderComponent
+    ListOrderComponent,
+    ConfirmDialogComponent
   ],
   imports: [
     BrowserModule,

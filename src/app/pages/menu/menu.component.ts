@@ -12,7 +12,7 @@ export class MenuComponent implements OnInit, OnDestroy {
   faShoppingCart = faShoppingCart;
   isAdmin = true;
 
-  constructor(private uiStateService: UiStateService) {}
+  constructor(protected uiStateService: UiStateService) {}
 
   ngOnInit() { }
 

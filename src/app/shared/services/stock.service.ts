@@ -16,33 +16,4 @@ export class StockService extends BaseService<Book> {
   constructor(protected http: HttpClient) {
     super(http, url);
    }
-
-  //  get(id?: number): Observable<Book | Book[]> {
-  //   return this.http.get(id ? [url, id].join('/') : url).pipe(
-  //     map(this.extractData),
-  //     catchError(error => this.handleError(error))
-  //   );
-  //  }
-
-  //  create(book: Book): Observable<Book> {
-  //    return this.http.post(url, book).pipe(
-  //     map(this.extractData),
-  //     catchError(error => this.handleError(error))
-  //    );
-  //  }
-
-  //  update(id: number, book: Book): Observable<Book> {
-  //   return this.http.put([url, id].join('/'), book).pipe(
-  //    map(this.extractData),
-  //    catchError(error => this.handleError(error))
-  //   );
-  // }
-
-
-  //  delete(id: number): Observable<Response> {
-  //     return this.http.delete([url, id].join('/')).pipe(
-  //       map(this.extractData),
-  //       catchError(error => this.handleError(error))
-  //     )
-  //  }
  }

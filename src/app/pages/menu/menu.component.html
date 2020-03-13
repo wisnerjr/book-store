@@ -1,17 +1,17 @@
 <div class="container">
   <div class="navbar navbar-expand-lg navbar-ligh bg-light ">
     <div class="col-md-7">
-      <button mat-button [routerLink]="['/home']" routerLinkActive="active">Home</button>
-    <button mat-button [routerLink]="['/list-product']" routerLinkActive="active" (click)="setAccess(false)"> User</button>
-      <button mat-button [matMenuTriggerFor]="admin">Admin</button>
+      <button mat-button [routerLink]="['/home']" routerLinkActive="active" class="text-primary">Home</button>
+    <button mat-button [routerLink]="['/list-product']" routerLinkActive="active" (click)="setAccess(false)" class="text-primary"> User</button>
+      <button mat-button [matMenuTriggerFor]="admin" class="text-primary">Admin</button>
 
       <mat-menu #admin="matMenu">
-        <button mat-menu-item [routerLink]="['/list-product']" routerLinkActive="active" (click)="setAccess(true)">Product List</button>
-        <button mat-menu-item [routerLink]="['/admin/list-order']" routerLinkActive="active">Pending Orders</button>
+        <button mat-menu-item [routerLink]="['/list-product']" routerLinkActive="active" (click)="setAccess(true)" class="text-primary">Product List</button>
+        <button mat-menu-item [routerLink]="['/admin/list-order']" routerLinkActive="active" class="text-primary">Pending Orders</button>
       </mat-menu>
     </div>
     <div class="offset-md-4">
-      <button mat-button [routerLink]="['/user/checkout']" routerLinkActive="active" (click)="addCount()">
+      <button mat-icon-button [routerLink]="['/user/checkout']" routerLinkActive="active" (click)="addCount()" class="text-success">
         <fa-icon [icon]="faShoppingCart"></fa-icon>  {{ uiStateService.checkoutCount }}
       </button>
     </div>
