@@ -24,7 +24,8 @@ export class AddProductComponent implements OnInit,  OnDestroy {
   submitted = false;
   existingBooksIds: Set<number>;
   Language = Language;
-  Genre = Genre;
+  genreList = Object.keys(Genre).map(genre => { return {value: genre, label: genre}});
+  selectedGenres = [];
 
   constructor(
     private route: ActivatedRoute,
@@ -48,7 +49,6 @@ export class AddProductComponent implements OnInit,  OnDestroy {
           name: this.book.name,
           author: this.book.author,
           quantity: this.book.quantity,
-          genre: this.book.genre,
           language: this.book.language
         });
       });
@@ -65,7 +65,6 @@ export class AddProductComponent implements OnInit,  OnDestroy {
       id: [undefined, [Validators.required]],
       name: [undefined, [Validators.required, Validators.min(3), Validators.max(50)]],
       author: [undefined, [Validators.required, Validators.min(3), Validators.max(50)]],
-      genre: undefined,
       language: undefined,
       quantity: [undefined, [Validators.required]]
     });
