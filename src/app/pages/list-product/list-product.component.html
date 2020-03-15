@@ -59,7 +59,7 @@
           <mat-form-field  hintLabel="Minimum 1 / Maximum 9999" appearance="fill">
             <mat-label>Quantity</mat-label>
             <input #quantityOrdered style="width: 70%;" type="number" matInput min="1" max="9999" placeholder="Ex. 9999" numbersOnly>
-            <button mat-icon-button title="Add to Shopping Cart" (click)="onAddToCart(element, quantityOrdered.value)">
+            <button mat-icon-button title="Add to Shopping Cart" (click)="onAddToCart(element, quantityOrdered)">
               <mat-icon aria-label="Add To Shopping Cart" class="text-success">add_shopping_cart</mat-icon>
             </button>
           </mat-form-field>

@@ -53,10 +53,10 @@ export class ListProductComponent implements OnInit, OnDestroy {
 
     let message = `Are you sure to add ${element.id}#${element.name} to cart?`
     let fn = () => {
-      if (element.quantity >= quantityOrdered) {
-        element.quantityOrder = quantityOrdered;
+      if (element.quantity >= quantityOrdered.value) {
+        element.quantityOrder = quantityOrdered.value;
         this.uiStateService.addItemToShoppingCart(<Book>element);
-        quantityOrdered = undefined;
+        quantityOrdered.value = undefined;
       } else {
         this.snackBar.open('Quantity ordered is greater than quantity avaiable at stock!', '', {
           duration: 4000,

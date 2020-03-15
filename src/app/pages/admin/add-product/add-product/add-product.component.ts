@@ -92,9 +92,9 @@ export class AddProductComponent implements OnInit,  OnDestroy {
     Object.assign(this.book, this.formGroup.value);
     this.book.genre = this.formGroup.value.genre.join(', ');
     if(this.isEditing) {
-      this.stockService.update(this.book.id, this.book).subscribe(() => { this.navigateToListProduct() });
+      this.stockService.update(this.book.id, this.book).subscribe(() => { this.redirectToHome() });
     } else {
-      this.stockService.create(this.book).subscribe(() => { this.navigateToListProduct() });
+      this.stockService.create(this.book).subscribe(() => { this.redirectToHome() });
     }
   }
 
@@ -105,5 +105,9 @@ export class AddProductComponent implements OnInit,  OnDestroy {
 
   navigateToListProduct() {
     this.router.navigateByUrl(listProductRoute);
+  }
+
+  redirectToHome() {
+    this.router.navigateByUrl('/');
   }
 }

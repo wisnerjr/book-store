@@ -66,7 +66,7 @@ export class CheckoutComponent implements OnInit, OnDestroy {
       });
     }
 
-    this.confirmDialog('Purchase', message, fn);
+    this.confirmDialog('Checkout', message, fn);
   }
 
   confirmDialog(title, message, callback?): void {
