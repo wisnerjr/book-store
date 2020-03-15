@@ -56,7 +56,7 @@ export class ListProductComponent implements OnInit, OnDestroy {
       if (element.quantity >= quantityOrdered.value) {
         element.quantityOrder = quantityOrdered.value;
         this.uiStateService.addItemToShoppingCart(<Book>element);
-        quantityOrdered.value = undefined;
+        quantityOrdered.value = '';
       } else {
         this.snackBar.open('Quantity ordered is greater than quantity avaiable at stock!', '', {
           duration: 4000,
@@ -69,12 +69,16 @@ export class ListProductComponent implements OnInit, OnDestroy {
     this.confirmDialog('Add To Shopping Cart', message, fn);
   }
 
+  onAddNewBook() {
+    this.router.navigateByUrl(addProductRoute);
+  }
+
   onEdit(element) {
     let message = `Are you sure to edit ${element.id}#${element.name} book(s)?`
     let fn = () => {
       this.router.navigate([addProductRoute, element.id]);
      }
-    this.confirmDialog('Remove Book', message, fn);
+    this.confirmDialog('Edit Book', message, fn);
   }
 
   onRemove(element) {

@@ -3,9 +3,11 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AngularMaterialModule } from './angular-material.module';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
+import { EnumValuePipe } from '../pipes/enum-value.pipe';
 
 
 @NgModule({
+  declarations: [EnumValuePipe],
   imports: [
     FormsModule,
     ReactiveFormsModule,
@@ -14,6 +16,7 @@ import { CommonModule } from '@angular/common';
     AngularMaterialModule
   ],
   exports: [
+    EnumValuePipe,
     FormsModule,
     ReactiveFormsModule,
     CommonModule,

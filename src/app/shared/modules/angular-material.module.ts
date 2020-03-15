@@ -45,6 +45,7 @@ import { MatIconModule } from '@angular/material/icon';
     MatListModule,
     MatIconModule
   ],
+  declarations: [ConfirmDialogComponent],
   entryComponents: [ConfirmDialogComponent]
 
 })

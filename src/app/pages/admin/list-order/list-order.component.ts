@@ -17,7 +17,7 @@ export class ListOrderComponent implements OnInit, OnDestroy {
 
 
   subs = new SubSink();
-  displayedColumns: string[] = ['orderDescription', 'orderDate', 'orderUser', 'orderStatus'];
+  displayedColumns: string[] = ['id', 'orderDescription', 'orderDate', 'orderUser', 'orderStatus'];
   dataSource = new MatTableDataSource<Order>([]);
 
   constructor(

@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { HomeComponent } from './pages/home/home.component';
 import { MenuModule } from './pages/menu/menu.module';
-import { AddProductComponent } from './pages/admin/add-product/add-product/add-product.component';
+import { AddProductComponent } from './pages/admin/add-product/add-product.component';
 import { ListProductComponent } from './pages/list-product/list-product.component';
 import { CheckoutComponent } from './pages/user/checkout/checkout.component';
 import { ListOrderComponent } from './pages/admin/list-order/list-order.component';
@@ -25,11 +25,9 @@ import { EnumValuePipe } from './shared/pipes/enum-value.pipe';
     ListProductComponent,
     CheckoutComponent,
     ListOrderComponent,
-    ConfirmDialogComponent,
     NumberOnlyDirective,
     TextOnlyDirective,
-    AlertSnackbarComponent,
-    EnumValuePipe
+    AlertSnackbarComponent
   ],
   imports: [
     BrowserModule,

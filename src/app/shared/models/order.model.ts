@@ -6,10 +6,11 @@ export class Order {
   constructor(orderDescription, uiStateService: UiStateService) {
     this.orderDescription = orderDescription;
     this.orderUser = uiStateService.clientName;
-    this.orderDate = format(new Date(), 'MM/dd/yyyy hh:mm:ss');
+    this.orderDate = format(new Date(), 'MM/dd/yyyy hh:mm:ss aaaa');
     this.orderStatus = OrderStatus.PENDING;
   }
 
+  id: number;
   orderDescription: string;
   orderUser: string;
   orderDate: string;

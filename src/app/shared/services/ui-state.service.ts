@@ -8,8 +8,8 @@ import { Book } from '../models/book.model';
 export class UiStateService {
 
   private _clientName = 'Wisner Júnior';
-  private _shoppingCart = new BehaviorSubject<Book[]>([])
-  private _items = new Array<Book> ();
+  private _shoppingCart = new BehaviorSubject<Book[]>([]);
+  private _items = new Array<Book>();
   private _isAdmin = false;
 
   constructor() { }

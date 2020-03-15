@@ -68,7 +68,7 @@ export class AddProductComponent implements OnInit,  OnDestroy {
       author: [undefined, [Validators.required, Validators.min(3), Validators.max(50)]],
       language: undefined,
       genre: [],
-      quantity: [undefined, [Validators.required]]
+      quantity: [undefined, [Validators.required, Validators.min(1), Validators.max(9999)]]
     });
   }
 
@@ -90,7 +90,7 @@ export class AddProductComponent implements OnInit,  OnDestroy {
     }
 
     Object.assign(this.book, this.formGroup.value);
-    this.book.genre = this.formGroup.value.genre.join(', ');
+    if (this.formGroup.value.genre) this.book.genre = this.formGroup.value.genre.join(', ');
     if(this.isEditing) {
       this.stockService.update(this.book.id, this.book).subscribe(() => { this.redirectToHome() });
     } else {
