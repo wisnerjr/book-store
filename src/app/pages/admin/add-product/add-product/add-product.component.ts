@@ -49,6 +49,7 @@ export class AddProductComponent implements OnInit,  OnDestroy {
           name: this.book.name,
           author: this.book.author,
           quantity: this.book.quantity,
+          genre: this.book.genre.split(', '),
           language: this.book.language
         });
       });
@@ -66,6 +67,7 @@ export class AddProductComponent implements OnInit,  OnDestroy {
       name: [undefined, [Validators.required, Validators.min(3), Validators.max(50)]],
       author: [undefined, [Validators.required, Validators.min(3), Validators.max(50)]],
       language: undefined,
+      genre: [],
       quantity: [undefined, [Validators.required]]
     });
   }
@@ -88,20 +90,20 @@ export class AddProductComponent implements OnInit,  OnDestroy {
     }
 
     Object.assign(this.book, this.formGroup.value);
+    this.book.genre = this.formGroup.value.genre.join(', ');
     if(this.isEditing) {
-      this.stockService.update(this.book.id, this.book).subscribe(() => { this.redirectToListProduct()});
+      this.stockService.update(this.book.id, this.book).subscribe(() => { this.navigateToListProduct() });
     } else {
-      this.stockService.create(this.book).subscribe(() => { this.redirectToListProduct()});
+      this.stockService.create(this.book).subscribe(() => { this.navigateToListProduct() });
     }
   }
 
   onCancel() {
     this.uiStateService.isAdmin = true;
-    this.redirectToListProduct();
+    this.navigateToListProduct();
   }
 
-  redirectToListProduct() {
+  navigateToListProduct() {
     this.router.navigateByUrl(listProductRoute);
   }
-
 }

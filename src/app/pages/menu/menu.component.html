@@ -11,8 +11,9 @@
       </mat-menu>
     </div>
     <div class="offset-md-4">
-      <button mat-icon-button [routerLink]="['/user/checkout']" routerLinkActive="active" (click)="addCount()" class="text-success">
-        <fa-icon [icon]="faShoppingCart"></fa-icon>  {{ uiStateService.checkoutCount }}
+      <button mat-icon-button [routerLink]="['/user/checkout']" routerLinkActive="active" (click)="navigateToCheckout()"
+       [ngClass]="uiStateService.countItems() > 0 ? 'text-success' : 'text-secondary'" [disabled]="uiStateService.countItems() === 0">
+        <mat-icon>shopping_cart</mat-icon> {{ uiStateService.countItems() }}
       </button>
     </div>
   </div>

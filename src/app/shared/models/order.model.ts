@@ -3,17 +3,15 @@ import { UiStateService } from '../services/ui-state.service';
 import { OrderStatus } from '../enums/order-status.enum';
 
 export class Order {
-  constructor(bookName, quantity, uiStateService: UiStateService) {
-    this.bookName = bookName;
-    this.quantity = quantity;
+  constructor(orderDescription, uiStateService: UiStateService) {
+    this.orderDescription = orderDescription;
     this.orderUser = uiStateService.clientName;
-    this.orderDate = format(new Date(), 'mm/dd/yyyy hh:ss');
+    this.orderDate = format(new Date(), 'MM/dd/yyyy hh:mm:ss');
     this.orderStatus = OrderStatus.PENDING;
   }
 
-  bookName: string;
+  orderDescription: string;
   orderUser: string;
   orderDate: string;
-  quantity: number;
   orderStatus: string;
 }

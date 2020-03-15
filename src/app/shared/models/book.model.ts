@@ -5,4 +5,5 @@ export class Book {
   genre: string;
   language: string;
   quantity: number;
+  quantityOrder: number;
 }

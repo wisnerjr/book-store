@@ -7,7 +7,7 @@ import { HomeComponent } from './pages/home/home.component';
 import { MenuModule } from './pages/menu/menu.module';
 import { AddProductComponent } from './pages/admin/add-product/add-product/add-product.component';
 import { ListProductComponent } from './pages/list-product/list-product.component';
-import { CheckoutComponent } from './pages/user/checkout/checkout/checkout.component';
+import { CheckoutComponent } from './pages/user/checkout/checkout.component';
 import { ListOrderComponent } from './pages/admin/list-order/list-order/list-order.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from './shared/modules/shared.module';

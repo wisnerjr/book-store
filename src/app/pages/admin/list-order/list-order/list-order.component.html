@@ -1,1 +1,32 @@
-<p>list-order works!</p>
+<div class="container">
+  <h3 class="m-3 text-primary">List Orders</h3>
+  <mat-divider class="title"></mat-divider>
+  <br />
+
+  <table mat-table [dataSource]="dataSource" matSort class="mat-elevation-z8" style="width: 100%;">
+    <ng-container matColumnDef="orderDescription">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Order Description </th>
+      <td mat-cell *matCellDef="let element"> {{ element.orderDescription }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="orderDate">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Order Date </th>
+      <td mat-cell *matCellDef="let element"> {{ element.orderDate }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="orderUser">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> User </th>
+      <td mat-cell *matCellDef="let element"> {{ element.orderUser }} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="orderStatus">
+      <th mat-header-cell *matHeaderCellDef mat-sort-header> Status </th>
+      <td mat-cell *matCellDef="let element"> {{ element.orderStatus }} </td>
+    </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+
+  <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+</div>

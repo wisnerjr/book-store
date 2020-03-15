@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
 import { AddProductComponent } from './pages/admin/add-product/add-product/add-product.component';
-import { CheckoutComponent } from './pages/user/checkout/checkout/checkout.component';
+import { CheckoutComponent } from './pages/user/checkout/checkout.component';
 import { ListProductComponent } from './pages/list-product/list-product.component';
 import { ListOrderComponent } from './pages/admin/list-order/list-order/list-order.component';
 

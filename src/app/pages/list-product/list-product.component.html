@@ -7,7 +7,7 @@
     <div class="col-md-10"></div>
     <div class="offset-md-3 m-2">
       <button mat-button class="btn btn-success" (click)="onAddToCart()">
-        <fa-icon [icon]="faPlus" title="Add New Book"></fa-icon>
+        <mat-icon aria-label="Add New Book">add</mat-icon>
         Add New Book
       </button>
     </div>
@@ -48,17 +48,21 @@
       <td mat-cell *matCellDef="let element">
         <div *ngIf="uiStateService.isAdmin">
           <button mat-icon-button title="Edit" (click)="onEdit(element)">
-            <fa-icon [icon]="faEdit" class="text-secondary"></fa-icon>
+            <mat-icon aria-label="Edit" class="text-secondary">edit</mat-icon>
           </button>
           <button mat-icon-button title="Remove" (click)="onRemove(element)">
-            <fa-icon [icon]="faTrash" class="text-danger"></fa-icon>
+            <mat-icon aria-label="Remove" class="text-danger">delete</mat-icon>
           </button>
         </div>
 
         <div *ngIf="!uiStateService.isAdmin">
-          <button mat-icon-button title="Add to Shopping Cart" (click)="onAddToCart(element)">
-            <fa-icon [icon]="faShoppingCart" class="text-success"></fa-icon>
-          </button>
+          <mat-form-field  hintLabel="Minimum 1 / Maximum 9999" appearance="fill">
+            <mat-label>Quantity</mat-label>
+            <input #quantityOrdered style="width: 70%;" type="number" matInput min="1" max="9999" placeholder="Ex. 9999" numbersOnly>
+            <button mat-icon-button title="Add to Shopping Cart" (click)="onAddToCart(element, quantityOrdered.value)">
+              <mat-icon aria-label="Add To Shopping Cart" class="text-success">add_shopping_cart</mat-icon>
+            </button>
+          </mat-form-field>
         </div>
 
       </td>

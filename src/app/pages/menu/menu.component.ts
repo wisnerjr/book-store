@@ -1,6 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { UiStateService } from 'src/app/shared/services/ui-state.service';
+import { Book } from 'src/app/shared/models/book.model';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-menu',
@@ -9,19 +10,16 @@ import { UiStateService } from 'src/app/shared/services/ui-state.service';
 })
 
 export class MenuComponent implements OnInit, OnDestroy {
-  faShoppingCart = faShoppingCart;
   isAdmin = true;
 
-  constructor(protected uiStateService: UiStateService) {}
+  constructor(protected uiStateService: UiStateService, private route: Router) {}
 
   ngOnInit() { }
 
   ngOnDestroy() { this.uiStateService.unsubscribeSubject(); }
 
 
-  addCount() {
-    this.uiStateService.addItemToCheckout();
-  }
+  navigateToCheckout() { this.route.navigateByUrl('user/checkout'); }
 
   setAccess(value) {
     this.uiStateService.isAdmin = value;

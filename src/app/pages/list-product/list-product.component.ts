@@ -5,11 +5,11 @@ import { Book } from 'src/app/shared/models/book.model';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
 import { UiStateService } from 'src/app/shared/services/ui-state.service';
-import { faPlus, faEdit, faTrash, faShoppingCart } from '@fortawesome/free-solid-svg-icons';
 import { MatDialog } from '@angular/material/dialog';
 import { ConfirmDialogComponent, ConfirmDialogModel } from 'src/app/shared/components/confirm-dialog/confirm-dialog.component';
 import { Router } from '@angular/router';
 import { MatSort } from '@angular/material/sort';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 const addProductRoute = 'admin/add-product/';
 
@@ -26,16 +26,13 @@ export class ListProductComponent implements OnInit, OnDestroy {
   subs = new SubSink();
   displayedColumns: string[] = ['id', 'name', 'author', 'genre', 'language', 'quantity', 'actions'];
   dataSource = new MatTableDataSource<Book>([]);
-  faPlus = faPlus;
-  faEdit = faEdit;
-  faTrash = faTrash;
-  faShoppingCart = faShoppingCart;
 
   constructor(
     private stockService: StockService,
     protected uiStateService: UiStateService,
     public dialog: MatDialog,
-    private router: Router
+    private router: Router,
+    private snackBar: MatSnackBar
   ) { }
 
   ngOnInit() {
@@ -49,11 +46,27 @@ export class ListProductComponent implements OnInit, OnDestroy {
       this.dataSource.data = resp.sort((a, b) => { return a.id - b.id; });
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
-    })
+    });
   }
 
-  onAddToCart() {
-    this.router.navigateByUrl(addProductRoute);
+  onAddToCart(element: Book, quantityOrdered) {
+
+    let message = `Are you sure to add ${element.id}#${element.name} to cart?`
+    let fn = () => {
+      if (element.quantity >= quantityOrdered) {
+        element.quantityOrder = quantityOrdered;
+        this.uiStateService.addItemToShoppingCart(<Book>element);
+        quantityOrdered = undefined;
+      } else {
+        this.snackBar.open('Quantity ordered is greater than quantity avaiable at stock!', '', {
+          duration: 4000,
+          verticalPosition: 'top',
+          panelClass: ['alert-snackbar', 'justify-content-center']
+        });
+        return;
+      }
+     }
+    this.confirmDialog('Add To Shopping Cart', message, fn);
   }
 
   onEdit(element) {

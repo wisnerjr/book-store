@@ -1,19 +1,23 @@
 import { NgModule } from '@angular/core';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { AngularMaterialModule } from './angular-material.module';
+import { RouterModule } from '@angular/router';
+import { CommonModule } from '@angular/common';
 
 
 @NgModule({
   imports: [
     FormsModule,
     ReactiveFormsModule,
-    FontAwesomeModule,
+    CommonModule,
+    RouterModule,
     AngularMaterialModule
   ],
   exports: [
+    FormsModule,
     ReactiveFormsModule,
-    FontAwesomeModule,
+    CommonModule,
+    RouterModule,
     AngularMaterialModule
   ]
 })

@@ -1,18 +1,12 @@
 import { NgModule } from '@angular/core';
-import { MatButtonModule } from '@angular/material/button';
-import { MatMenuModule } from '@angular/material/menu';
-import { MatDividerModule } from '@angular/material/divider';
 import { MenuComponent } from './menu.component';
-import { FontAwesomeModule } from '@fortawesome/angular-fontawesome';
-import { RouterModule } from '@angular/router';
+import { SharedModule } from 'src/app/shared/modules/shared.module';
+import { AngularMaterialModule } from 'src/app/shared/modules/angular-material.module';
 
 @NgModule({
   imports: [
-    MatButtonModule,
-    MatMenuModule,
-    MatDividerModule,
-    FontAwesomeModule,
-    RouterModule
+    AngularMaterialModule,
+    SharedModule
   ],
   exports: [
     MenuComponent

@@ -6,7 +6,7 @@
   <form style="width: 100%;" [formGroup]="formGroup" (ngSubmit)="submit()">
     <div class="row">
       <div class="col-md-6">
-        <mat-form-field hintLabel="Insert a unique id" appearance="fill">
+        <mat-form-field hintLabel="Insert a unique id. Required!" appearance="fill">
           <mat-label>Id</mat-label>
           <input formControlName="id" matInput placeholder="Ex. 999" numbersOnly>
           <mat-hint align="end">Cannot be same as existing products ids!</mat-hint>
@@ -14,7 +14,7 @@
       </div>
 
       <div class="col-md-6">
-        <mat-form-field hintLabel="Min 3/Max 50 characters" appearance="fill">
+        <mat-form-field hintLabel="Min 3/Max 50 characters. Required!" appearance="fill">
           <mat-label>Name</mat-label>
           <input formControlName="name" matInput minLength="3" maxlength="50" placeholder="Ex. Clean Code" textOnly>
           <mat-hint align="end">{{ formGroup.value.name?.length || 0}}/50</mat-hint>
@@ -24,7 +24,7 @@
 
     <div class="row">
       <div class="col-md-6">
-        <mat-form-field hintLabel="Insert author name" appearance="fill">
+        <mat-form-field hintLabel="Insert author name. Required!" appearance="fill">
           <mat-label>Author</mat-label>
           <input formControlName="author" matInput minLength="3" maxlength="50" placeholder="Ex. Bernard Cornwell" textOnly>
           <mat-hint align="end">{{ formGroup.value.name?.length || 0}}/50</mat-hint>
@@ -32,7 +32,7 @@
       </div>
 
       <div class="col-md-6">
-        <mat-form-field hintLabel="Minimum capacity 1" appearance="fill">
+        <mat-form-field hintLabel="Minimum capacity 1. Required!" appearance="fill">
           <mat-label>Quantity</mat-label>
           <input type="number" formControlName="quantity" matInput min="1" max="9999" placeholder="Ex. 9999" numbersOnly>
           <mat-hint align="end">Maximum capacity 9999</mat-hint>
@@ -42,11 +42,15 @@
 
       <div class="row">
         <div class="col-md-6">
-          <mat-selection-list #genres>
-            <mat-list-option *ngFor="let genre of genreList">
-              {{genre.label}}
-            </mat-list-option>
-          </mat-selection-list>
+          <mat-form-field hintLabel="Select a genre for your book" appearance="fill">
+            <mat-label>Genre</mat-label>
+            <mat-select formControlName="genre" multiple>
+              <mat-option *ngFor="let genre of genreList" [value]="genre.value">
+                {{genre.label}}
+              </mat-option>
+            </mat-select>
+            <mat-hint align="end">You can choose more than one!</mat-hint>
+          </mat-form-field>
         </div>
 
         <div class="col-md-6">

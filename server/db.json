@@ -8,7 +8,8 @@
         "Fantasy"
       ],
       "language": "English",
-      "quantity": 5
+      "quantity": 3,
+      "quantityOrder": "2"
     },
     {
       "id": "3",
@@ -73,7 +74,24 @@
       ],
       "language": "Chinese",
       "quantity": 30
+    },
+    {
+      "id": "1",
+      "name": "teste",
+      "author": "tes",
+      "language": "Chinese",
+      "genre": "Fantasy, Suspense",
+      "quantity": 0,
+      "quantityOrder": "1"
     }
   ],
-  "checkout": []
+  "checkout": [
+    {
+      "orderDescription": "teste (1 un.); The Little Prince (2 un.)",
+      "orderUser": "Wisner Júnior",
+      "orderDate": "03/15/2020 12:43:02",
+      "orderStatus": "PENDING",
+      "id": 1
+    }
+  ]
 }

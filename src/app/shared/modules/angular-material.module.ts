@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { ConfirmDialogComponent } from '../components/confirm-dialog/confirm-dialog.component';
+import { MatMenuModule } from '@angular/material/menu';
 import { MatTableModule } from '@angular/material/table';
 import { CdkTableModule } from '@angular/cdk/table';
 import { MatSortModule } from '@angular/material/sort';
@@ -10,13 +11,14 @@ import { MatDividerModule } from '@angular/material/divider';
 import { MatInputModule } from '@angular/material/input';
 import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { MatSelectModule } from '@angular/material/select';
-import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatListModule } from '@angular/material/list';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   imports: [
     MatTableModule,
     CdkTableModule,
+    MatMenuModule,
     MatSortModule,
     MatPaginatorModule,
     MatButtonModule,
@@ -25,12 +27,13 @@ import { MatListModule } from '@angular/material/list';
     MatInputModule,
     MatSnackBarModule,
     MatSelectModule,
-    MatCheckboxModule,
-    MatListModule
+    MatListModule,
+    MatIconModule,
   ],
   exports: [
     MatTableModule,
     CdkTableModule,
+    MatMenuModule,
     MatSortModule,
     MatPaginatorModule,
     MatButtonModule,
@@ -39,8 +42,8 @@ import { MatListModule } from '@angular/material/list';
     MatInputModule,
     MatSnackBarModule,
     MatSelectModule,
-    MatCheckboxModule,
-    MatListModule
+    MatListModule,
+    MatIconModule
   ],
   entryComponents: [ConfirmDialogComponent]
 
