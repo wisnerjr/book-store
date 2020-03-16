@@ -2,6 +2,10 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.18.
 
+## Instructions
+
+`Book Store - Dojo Instructions.pdf` contains the application specifications and instructions.
+
 ## API server
 
 Run `npm start` for an API server. The API server is running with [JSON Server](https://www.npmjs.com/package/json-server) and can be accessed in the following url: `http://localhost:3000`.
