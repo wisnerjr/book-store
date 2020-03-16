@@ -10,6 +10,8 @@ import { Language } from 'src/app/shared/enums/language.enum';
 import { Genre } from 'src/app/shared/enums/genre.enum';
 
 const listProductRoute = '/list-product';
+const textPattern = '^[A-Za-z0-9ñÑáéíóúÁÉÍÓÚ\\.\\[\\]\\(\\)\\;\\{\\}\\!\\@\\#\\$\\%\\&\\?\\, ]+$';
+const textNamePattern = '^[A-Za-zñÑáéíóúÁÉÍÓÚ\\.\\;\\, ]+$';
 @Component({
   selector: 'app-add-product',
   templateUrl: './add-product.component.html',
@@ -54,6 +56,7 @@ export class AddProductComponent implements OnInit,  OnDestroy {
         });
       });
       this.formGroup.controls['id'].disable();
+      console.log(this.formGroup);
     } else {
       this.subs.sink = this.stockService.get().subscribe((resp: Book[]) => {
         this.existingBooksIds = new Set([...resp.map(r => { return r.id; })]);
@@ -64,8 +67,8 @@ export class AddProductComponent implements OnInit,  OnDestroy {
   buildForm() {
     this.formGroup = this.fb.group({
       id: [undefined, [Validators.required]],
-      name: [undefined, [Validators.required, Validators.min(3), Validators.max(50)]],
-      author: [undefined, [Validators.required, Validators.min(3), Validators.max(50)]],
+      name: [undefined, [Validators.required, Validators.minLength(3), Validators.maxLength(50), Validators.pattern(textPattern)]],
+      author: [undefined, [Validators.required, Validators.minLength(3), Validators.maxLength(50), Validators.pattern(textNamePattern)]],
       language: undefined,
       genre: [],
       quantity: [undefined, [Validators.required, Validators.min(1), Validators.max(9999)]]
@@ -91,6 +94,7 @@ export class AddProductComponent implements OnInit,  OnDestroy {
 
     Object.assign(this.book, this.formGroup.value);
     if (this.formGroup.value.genre) this.book.genre = this.formGroup.value.genre.join(', ');
+    this.book.quantityOrder = null;
     if(this.isEditing) {
       this.stockService.update(this.book.id, this.book).subscribe(() => { this.redirectToHome() });
     } else {

@@ -1,11 +1,10 @@
 import { TestBed } from '@angular/core/testing';
 import { of } from 'rxjs';
 import { SharedModule } from '../modules/shared.module';
-import { HttpClientModule } from '@angular/common/http';
 import { Book } from '../models/book.model';
 import { StockService } from './stock.service';
 import { BaseService } from './base.service';
-
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('StockService', () => {
   let service: StockService;
@@ -15,7 +14,7 @@ describe('StockService', () => {
   data1.name = 'Book 1';
 
   let data2 = new Book();
-  data1.id = 2
+  data2.id = 2
   data2.name = 'Book 2';
 
   let dataList = new Array<Book>(data1, data2);
@@ -24,7 +23,7 @@ describe('StockService', () => {
     TestBed.configureTestingModule({
       imports: [
         SharedModule,
-        HttpClientModule
+        HttpClientTestingModule
       ],
       providers: [{ provide: BaseService, useClass: Book }]
     });
@@ -42,10 +41,10 @@ describe('StockService', () => {
 
     expect(service.get).toHaveBeenCalled();
 
-    expect(dataList.length).toEqual(result.length);
     expect(result).toContain(data1);
     expect(result).toContain(data2);
-
+    expect(result.length).toEqual(dataList.length);
+    expect(result).toEqual(dataList);
   });
 
   it('get book from id', () =>  {

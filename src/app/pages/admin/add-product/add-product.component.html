@@ -14,28 +14,28 @@
       </div>
 
       <div class="col-md-6">
-        <mat-form-field hintLabel="Min 3/Max 50 characters. Required!" appearance="fill">
+        <mat-form-field hintLabel="Text only and required" appearance="fill">
           <mat-label>Name</mat-label>
-          <input formControlName="name" matInput minLength="3" maxlength="50" placeholder="Ex. Clean Code" textOnly>
-          <mat-hint align="end">{{ formGroup.value.name?.length || 0}}/50</mat-hint>
+          <input formControlName="name" matInput minLength="3" maxlength="50" placeholder="Ex. Clean Code">
+          <mat-hint align="end">Min 3/Max 50 characters - {{ formGroup.value.name?.length || 0}}/50</mat-hint>
         </mat-form-field>
       </div>
     </div>
 
     <div class="row">
       <div class="col-md-6">
-        <mat-form-field hintLabel="Insert author name. Required!" appearance="fill">
+        <mat-form-field hintLabel="Text only and required" appearance="fill">
           <mat-label>Author</mat-label>
-          <input formControlName="author" matInput minLength="3" maxlength="50" placeholder="Ex. Bernard Cornwell" textOnly>
-          <mat-hint align="end">{{ formGroup.value.name?.length || 0}}/50</mat-hint>
+          <input formControlName="author" matInput minLength="3" maxlength="50" placeholder="Ex. Robert C. Martin">
+          <mat-hint align="end">>Min 3/Max 50 characters - {{ formGroup.value.name?.length || 0}}/50</mat-hint>
         </mat-form-field>
       </div>
 
       <div class="col-md-6">
-        <mat-form-field hintLabel="Minimum capacity 1. Required!" appearance="fill">
+        <mat-form-field hintLabel="Required" appearance="fill">
           <mat-label>Quantity</mat-label>
           <input type="number" formControlName="quantity" matInput min="1" max="9999" placeholder="Ex. 9999" numbersOnly>
-          <mat-hint align="end">Maximum capacity 9999</mat-hint>
+          <mat-hint align="end">Min 1/Max 9999 items</mat-hint>
         </mat-form-field>
       </div>
     </div>
@@ -54,14 +54,13 @@
         </div>
 
         <div class="col-md-6">
-          <mat-form-field hintLabel="Min 3/Max 50 characters" appearance="fill">
+          <mat-form-field hintLabel="Select the language of your book" appearance="fill">
             <mat-label>Language</mat-label>
             <mat-select formControlName="language">
               <mat-option *ngFor="let language of Language | enumValue" [value]="language">
                 {{language}}
               </mat-option>
             </mat-select>
-            <mat-hint align="end">{{ formGroup.value.name?.length || 0}}/50</mat-hint>
           </mat-form-field>
         </div>
     </div>

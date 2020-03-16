@@ -1,9 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { CheckoutComponent } from './checkout.component';
 import { SharedModule } from 'src/app/shared/modules/shared.module';
-import { HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('CheckoutComponent', () => {
   let component: CheckoutComponent;
@@ -15,7 +14,7 @@ describe('CheckoutComponent', () => {
       imports: [
         BrowserAnimationsModule,
         SharedModule,
-        HttpClientModule
+        HttpClientTestingModule
        ]
     })
     .compileComponents();

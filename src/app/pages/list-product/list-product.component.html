@@ -56,7 +56,7 @@
         </div>
 
         <div *ngIf="!uiStateService.isAdmin">
-          <mat-form-field  hintLabel="Minimum 1 / Maximum 9999" appearance="fill">
+          <mat-form-field  hintLabel="Min 1/Max 9999 items" appearance="fill">
             <mat-label>Quantity</mat-label>
             <input #quantityOrdered style="width: 70%;" type="number" matInput min="1" max="9999" placeholder="Ex. 9999" numbersOnly>
             <button mat-icon-button [disabled]="!quantityOrdered.value" title="Add to Shopping Cart" (click)="onAddToCart(element, quantityOrdered)">

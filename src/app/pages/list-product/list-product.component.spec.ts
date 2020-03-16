@@ -1,11 +1,10 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { ListProductComponent } from './list-product.component';
 import { SharedModule } from 'src/app/shared/modules/shared.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
 import { RouterModule } from '@angular/router';
 import { RouterTestingModule } from '@angular/router/testing';
+import { HttpClientTestingModule } from '@angular/common/http/testing';
 
 describe('ListProductComponent', () => {
   let component: ListProductComponent;
@@ -17,7 +16,7 @@ describe('ListProductComponent', () => {
       imports: [
         BrowserAnimationsModule,
         SharedModule,
-        HttpClientModule,
+        HttpClientTestingModule,
         RouterModule,
         RouterTestingModule.withRoutes([])
        ]

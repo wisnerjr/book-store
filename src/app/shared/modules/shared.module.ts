@@ -4,10 +4,16 @@ import { AngularMaterialModule } from './angular-material.module';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { EnumValuePipe } from '../pipes/enum-value.pipe';
+import { NumberOnlyDirective } from '../directives/number-only.directive';
+import { AlertSnackbarComponent } from '../components/alert-snackbar/alert-snackbar.component';
 
 
 @NgModule({
-  declarations: [EnumValuePipe],
+  declarations: [
+    NumberOnlyDirective,
+    AlertSnackbarComponent,
+    EnumValuePipe
+  ],
   imports: [
     FormsModule,
     ReactiveFormsModule,
@@ -16,6 +22,8 @@ import { EnumValuePipe } from '../pipes/enum-value.pipe';
     AngularMaterialModule
   ],
   exports: [
+    NumberOnlyDirective,
+    AlertSnackbarComponent,
     EnumValuePipe,
     FormsModule,
     ReactiveFormsModule,

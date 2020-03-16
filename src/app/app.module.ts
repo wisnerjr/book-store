@@ -11,11 +11,6 @@ import { CheckoutComponent } from './pages/user/checkout/checkout.component';
 import { ListOrderComponent } from './pages/admin/list-order/list-order.component';
 import { HttpClientModule } from '@angular/common/http';
 import { SharedModule } from './shared/modules/shared.module';
-import { ConfirmDialogComponent } from './shared/components/confirm-dialog/confirm-dialog.component';
-import { NumberOnlyDirective } from './shared/directives/number-only.directive';
-import { TextOnlyDirective } from './shared/directives/text-only.directive';
-import { AlertSnackbarComponent } from './shared/components/alert-snackbar/alert-snackbar.component';
-import { EnumValuePipe } from './shared/pipes/enum-value.pipe';
 
 @NgModule({
   declarations: [
@@ -25,9 +20,6 @@ import { EnumValuePipe } from './shared/pipes/enum-value.pipe';
     ListProductComponent,
     CheckoutComponent,
     ListOrderComponent,
-    NumberOnlyDirective,
-    TextOnlyDirective,
-    AlertSnackbarComponent
   ],
   imports: [
     BrowserModule,

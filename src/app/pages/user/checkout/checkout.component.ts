@@ -50,7 +50,7 @@ export class CheckoutComponent implements OnInit, OnDestroy {
     let fn = () => {
       let descriptionList = [];
       this.shoppingCartList.forEach(book => {
-        descriptionList.push(`${book.name} (${book.quantityOrder} un.)`)
+        descriptionList.push(`${book.name} - ${book.quantityOrder} un.`)
       });
 
       let order = new Order(descriptionList.join("; "), this.uiStateService);

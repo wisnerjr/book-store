@@ -1,38 +1,44 @@
 {
   "stock": [
     {
+      "id": "0",
+      "name": "Altered Carbon (Book 1)",
+      "author": "Richard K. Morgan",
+      "language": "English",
+      "genre": "Action, Syfy",
+      "quantity": 48,
+      "quantityOrder": null
+    },
+    {
+      "id": "1",
+      "name": "The Last Kingdom (Saxon Chronicles Series)",
+      "author": "Bernard Cornwell",
+      "language": "English",
+      "genre": "Fantasy, Action",
+      "quantity": 98,
+      "quantityOrder": null
+    },
+    {
       "id": "2",
       "name": "The Little Prince",
       "author": "Antoine de Saint-Exupéry",
-      "genre": [
-        "Fantasy"
-      ],
+      "genre": "Fantasy",
       "language": "English",
-      "quantity": 2,
-      "quantityOrder": "1"
+      "quantity": 2
     },
     {
       "id": "3",
       "name": "Harry Potter and the Philosopher's Stone",
       "author": "J. K. Rowling",
-      "genre": [
-        "Fantasy",
-        "Mystery"
-      ],
+      "genre": "Fantasy, Mystery",
       "language": "English",
-      "quantity": 18,
-      "quantityOrder": "1"
+      "quantity": 18
     },
     {
       "id": "4",
       "name": "The Master and Margarita",
       "author": "Mikhail Bulgakov",
-      "genre": [
-        "Fantasy",
-        "Farce",
-        "Supernatural",
-        "Romance"
-      ],
+      "genre": "Fantasy, Farce, Supernatural, Romance",
       "language": "English",
       "quantity": 7
     },
@@ -40,9 +46,7 @@
       "id": "5",
       "name": "Alice's Adventures in Wonderland",
       "author": "Lewis Carroll",
-      "genre": [
-        "Fantasy"
-      ],
+      "genre": "Fantasy",
       "language": "English",
       "quantity": 2
     },
@@ -50,9 +54,7 @@
       "id": "6",
       "name": "The Hobbit",
       "author": "J. R. R. Tolkien",
-      "genre": [
-        "Fantasy"
-      ],
+      "genre": "Fantasy",
       "language": "English",
       "quantity": 10
     },
@@ -60,9 +62,7 @@
       "id": "7",
       "name": "And Then There Were None",
       "author": "Agatha Christie",
-      "genre": [
-        "Mystery"
-      ],
+      "genre": "Mystery",
       "language": "English",
       "quantity": 1
     },
@@ -70,65 +70,21 @@
       "id": "8",
       "name": "Dream of the Red Chamber",
       "author": "Cao Xueqin",
-      "genre": [
-        "Fantasy"
-      ],
+      "genre": "Fantasy",
       "language": "Chinese",
       "quantity": 30
-    },
-    {
-      "id": "1",
-      "name": "The Last Kingdom (Saxon Chronicles)",
-      "author": "Bernard Cornwell",
-      "language": "English",
-      "genre": "Fantasy, Action",
-      "quantity": 98,
-      "quantityOrder": "1"
-    },
-    {
-      "id": "0",
-      "name": "Altered Carbon (Book One)",
-      "author": "Richard K. Morgan",
-      "language": "English",
-      "genre": "Action, Syfy",
-      "quantity": 48,
-      "quantityOrder": "1"
-    },
-    {
-      "id": "99",
-      "name": "TESTE1",
-      "author": "TESTE",
-      "language": null,
-      "genre": null,
-      "quantity": 997,
-      "quantityOrder": "2"
-    },
-    {
-      "id": "999",
-      "name": "TESTE",
-      "author": "TESTE",
-      "language": "France",
-      "genre": "Fantasy",
-      "quantity": 88
     }
   ],
   "checkout": [
     {
-      "orderDescription": "Altered Carbon (Book One) (1 un.); The Last Kingdom (Saxon Chronicles) (1 un.)",
+      "orderDescription": "Altered Carbon (Book One) - 1 un.; The Last Kingdom (Saxon Chronicles Saxon Chronicles Series) - 1 un.",
       "orderUser": "Wisner Júnior",
       "orderDate": "03/15/2020 02:41:36 p.m.",
       "orderStatus": "PENDING",
       "id": 1
     },
     {
-      "orderDescription": "TESTE1 (2 un.)",
-      "orderUser": "Wisner Júnior",
-      "orderDate": "03/15/2020 03:11:23 p.m.",
-      "orderStatus": "PENDING",
-      "id": 2
-    },
-    {
-      "orderDescription": "Altered Carbon (Book One) (1 un.); The Last Kingdom (Saxon Chronicles) (1 un.)",
+      "orderDescription": "Altered Carbon (Book One) - 1 un.; The Last Kingdom (Saxon Chronicles Series) - 1 un.",
       "orderUser": "Wisner Júnior",
       "orderDate": "03/15/2020 05:34:02 p.m.",
       "orderStatus": "PENDING",
